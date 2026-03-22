@@ -10,7 +10,7 @@ export default function Nav() {
     <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
       <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4 overflow-x-auto">
         <A href="/" class="flex items-center gap-2 shrink-0">
-          <img src="/icon.svg" alt="zachara.dev" class="w-7 h-7" />
+          <img src="/icon.svg" alt="zachara.dev" class="w-10 h-10" />
           <span class="text-lg font-bold text-white tracking-tight hidden sm:inline">zachara<span class="text-emerald-400">.dev</span></span>
         </A>
         <div class="flex gap-4 sm:gap-6 text-sm font-medium shrink-0">
