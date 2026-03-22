@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zachara.dev/sitemap.xml

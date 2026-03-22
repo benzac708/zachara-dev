@@ -1,0 +1,9 @@
+.git
+.github
+helm
+*.md
+.dockerignore
+.gitignore
+node_modules
+.output
+.vinxi

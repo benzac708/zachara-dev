@@ -1,0 +1,51 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  VPS_HOST: instance-20251224-2308-1
+  DEPLOY_USER: ubuntu
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Build and deploy on VPS
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ env.DEPLOY_USER }}@${{ env.VPS_HOST }} \
+            "set -e && \
+             export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
+             cd /home/ubuntu/zachara-dev && \
+             git pull origin main && \
+             docker build \
+               -t ghcr.io/benzac708/zachara-dev:latest \
+               -t ghcr.io/benzac708/zachara-dev:${COMMIT_SHA} \
+               . && \
+             docker push ghcr.io/benzac708/zachara-dev:latest && \
+             docker push ghcr.io/benzac708/zachara-dev:${COMMIT_SHA} && \
+             helm upgrade --install zachara-dev ./helm/zachara-dev \
+               --namespace zachara-dev \
+               --create-namespace \
+               --set image.tag=${COMMIT_SHA} \
+               --wait --timeout 120s && \
+             echo 'Deploy complete: ${COMMIT_SHA}'"
