@@ -38,14 +38,6 @@ export default function Nav() {
           >
             Contact
           </A>
-          <a
-            href="https://grafana.zachara.dev"
-            target="_blank"
-            rel="noopener"
-            class="text-slate-400 hover:text-white transition"
-          >
-            Monitoring
-          </a>
         </div>
       </div>
     </nav>
