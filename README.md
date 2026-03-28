@@ -32,3 +32,11 @@ Push to `main` triggers GitHub Actions:
 1. Builds Docker image
 2. Pushes to ghcr.io/benzac708/zachara-dev
 3. Deploys to K3s via Helm
+
+## AI-assisted CI
+
+This repo includes a one-shot CI repair wrapper at `scripts/ai-repair-ci.sh`.
+
+- If tests or build fail, CI sends the error log to OpenCode once.
+- The model is configurable with `CI_AI_MODEL` and defaults to `opencode/big-picle`.
+- The step reruns the failed command one time after the AI edit.
