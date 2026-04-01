@@ -22,15 +22,18 @@ export default function Resume() {
       <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
-      <Title>Resume - Bernard Zachara</Title>
+      <Title>Resume - Bernard Zachara | DevOps Engineer</Title>
       <Meta
         name="description"
-        content="Bernard Zachara's resume - DevOps engineer with expertise in Kubernetes, Terraform, CI/CD, and cloud infrastructure."
+        content="Bernard Zachara's resume - DevOps engineer with expertise in Kubernetes, Terraform, CI/CD, and cloud infrastructure. Download PDF."
       />
+      <Meta name="viewport" content="width=device-width, initial-scale=1" />
       <Link rel="canonical" href="https://zachara.dev/resume" />
-      <Meta property="og:title" content="Resume - Bernard Zachara" />
+      <Meta property="og:title" content="Resume - Bernard Zachara | DevOps Engineer" />
       <Meta property="og:description" content="Bernard Zachara's resume - DevOps engineer with expertise in Kubernetes, Terraform, CI/CD, and cloud infrastructure." />
       <Meta property="og:url" content="https://zachara.dev/resume" />
+      <Meta property="og:type" content="profile" />
+      <Meta property="og:image" content="https://zachara.dev/img/og-resume.png" />
       <script type="application/ld+json" innerHTML={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
@@ -51,17 +54,18 @@ export default function Resume() {
             infrastructure as code, CI/CD pipelines, and cloud-native architecture. Passionate about
             automation, reliability, and building systems that scale.
           </p>
-          <a
-            href="https://d34u1oflqrjm2f.cloudfront.net/resume.pdf"
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-medium rounded-lg transition text-sm"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 6v-2M14 2v6h6" />
-            </svg>
-            View PDF Resume
-          </a>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="/resume-cloud-devops.pdf"
+              download="resume-cloud-devops.pdf"
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition text-sm"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download Resume PDF
+            </a>
+          </div>
         </div>
 
         {/* Skills Grid */}

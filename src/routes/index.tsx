@@ -23,15 +23,22 @@ export default function Home() {
   return (
     <>
       <FaviconLinks />
-      <Title>Bernard Zachara - DevOps Engineer</Title>
+      <Title>Bernard Zachara | Cloud/DevOps Engineer & Infrastructure Specialist</Title>
       <Meta
         name="description"
-        content="DevOps engineer specializing in Kubernetes, CI/CD, Infrastructure as Code, and cloud-native architecture."
+        content="Self-taught DevOps engineer with production-grade Kubernetes, Terraform, and multi-cloud infrastructure experience. Building reliable systems that scale."
       />
+      <Meta name="viewport" content="width=device-width, initial-scale=1" />
       <Link rel="canonical" href="https://zachara.dev/" />
-      <Meta property="og:title" content="Bernard Zachara - DevOps Engineer" />
-      <Meta property="og:description" content="DevOps engineer specializing in Kubernetes, CI/CD, Infrastructure as Code, and cloud-native architecture." />
+      <Meta property="og:title" content="Bernard Zachara | Cloud/DevOps Engineer & Infrastructure Specialist" />
+      <Meta property="og:description" content="Self-taught DevOps engineer with production-grade Kubernetes, Terraform, and multi-cloud infrastructure experience." />
       <Meta property="og:url" content="https://zachara.dev/" />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:image" content="https://zachara.dev/img/og-home.png" />
+      <Meta property="og:site_name" content="zachara.dev" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:title" content="Bernard Zachara | Cloud/DevOps Engineer" />
+      <Meta name="twitter:description" content="Self-taught DevOps engineer with production-grade Kubernetes, Terraform, and multi-cloud infrastructure experience." />
       <script type="application/ld+json" innerHTML={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -68,19 +75,29 @@ export default function Home() {
             Hey, I'm <span class="text-emerald-400">Ben</span>.
           </h1>
           <p class="text-lg sm:text-xl text-slate-400 mb-2 max-w-lg mx-auto">
-            DevOps engineer building reliable infrastructure with Kubernetes, Terraform, and CI/CD pipelines.
+            Self-taught DevOps engineer pivoting to infrastructure. I build production-grade systems with Kubernetes, Terraform, and CI/CD pipelines.
           </p>
           <p class="text-lg sm:text-xl text-slate-400 mb-8">
-            I automate everything.
+            This website runs on the infrastructure I built. Proof, not promises.
           </p>
 
           {/* CTAs */}
           <div class="flex flex-wrap gap-4 justify-center mb-12">
             <a
-              href="/resume"
-              class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition"
+              href="/resume-cloud-devops.pdf"
+              download="resume-cloud-devops.pdf"
+              class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition flex items-center gap-2"
             >
-              View Resume
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download Resume
+            </a>
+            <a
+              href="/infrastructure"
+              class="px-6 py-3 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-semibold rounded-lg transition"
+            >
+              View Infrastructure
             </a>
             <a
               href="/projects"

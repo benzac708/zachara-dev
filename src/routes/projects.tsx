@@ -3,11 +3,21 @@ import ProjectCard from "~/components/ProjectCard";
 
 const projects = [
   {
+    title: "cloud-devops-portfolio",
+    description:
+      "Complete infrastructure-as-code repository showcasing production-grade DevOps capabilities. Multi-cloud Terraform modules (AWS + Azure), k3s Kubernetes cluster with 30+ deployments, GitOps with ArgoCD, full observability stack (Prometheus, Grafana, ELK), and automated CI/CD pipelines. This is the infrastructure powering zachara.dev and associated services.",
+    href: "https://github.com/benzac708/cloud-devops-portfolio",
+    tech: ["Terraform", "AWS", "Azure", "Kubernetes", "Helm", "ArgoCD", "GitHub Actions"],
+    featured: true,
+    live: true,
+  },
+  {
     title: "zachara-dev",
     description:
       "This portfolio site - built with SolidJS/SolidStart, pre-rendered to static HTML at build time. CI/CD via GitHub Actions builds a Docker image and deploys to K3s with Helm. Served through CloudFlare and Traefik ingress.",
     href: "https://github.com/benzac708/zachara-dev",
     tech: ["SolidJS", "TailwindCSS", "Docker", "Helm", "GitHub Actions"],
+    live: true,
   },
   {
     title: "vps-infrastructure",
@@ -15,6 +25,7 @@ const projects = [
       "Self-hosted Ubuntu Oracle Cloud VPS running K3s, serving multiple containerized applications. Managed from an Omarchy desktop workflow. Includes Traefik ingress with TLS, Prometheus and Grafana monitoring, automated backups, Tailscale mesh networking for secure CI/CD access, and scheduled maintenance with safe reboot automation.",
     href: "https://github.com/benzac708",
     tech: ["K3s", "Traefik", "Prometheus", "Grafana", "Tailscale", "Oracle Cloud"],
+    live: true,
   },
   {
     title: "cloud-app",
@@ -22,6 +33,7 @@ const projects = [
       "Full-stack cloud-native application deployed on K3s with Helm charts, health checks, and Traefik ingress routing. Demonstrates end-to-end container orchestration workflow.",
     href: "https://github.com/benzac708/cloud-app",
     tech: ["Kubernetes", "Helm", "Docker", "Traefik", "Python"],
+    live: true,
   },
   {
     title: "aws-lab",
@@ -55,10 +67,11 @@ export default function Projects() {
         name="description"
         content="DevOps projects by Bernard Zachara - Kubernetes deployments, AWS labs, and Terraform infrastructure."
       />
+      <Meta name="viewport" content="width=device-width, initial-scale=1" />
       <Link rel="canonical" href="https://zachara.dev/projects" />
       <Meta property="og:title" content="Projects - Bernard Zachara" />
       <Meta property="og:description" content="DevOps projects by Bernard Zachara - Kubernetes deployments, AWS labs, and Terraform infrastructure." />
-      <Meta property="og:url" content="https://zachara.dev/projects" />
+      <Meta property="og:image" content="https://zachara.dev/img/og-projects.png" />
 
       <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
         <div class="mb-12 text-center">
@@ -75,6 +88,8 @@ export default function Projects() {
               description={project.description}
               href={project.href}
               tech={project.tech}
+              featured={project.featured}
+              live={project.live}
             />
           ))}
         </div>

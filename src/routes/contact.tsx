@@ -11,15 +11,18 @@ export default function Contact() {
       <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
-      <Title>Contact - Bernard Zachara</Title>
+      <Title>Contact - Bernard Zachara | DevOps Engineer</Title>
       <Meta
         name="description"
-        content="Get in touch with Bernard Zachara - DevOps engineer available for opportunities and collaboration."
+        content="Get in touch with Bernard Zachara - DevOps engineer available for opportunities and collaboration. Email: bernard@zachara.dev"
       />
+      <Meta name="viewport" content="width=device-width, initial-scale=1" />
       <Link rel="canonical" href="https://zachara.dev/contact" />
-      <Meta property="og:title" content="Contact - Bernard Zachara" />
+      <Meta property="og:title" content="Contact - Bernard Zachara | DevOps Engineer" />
       <Meta property="og:description" content="Get in touch with Bernard Zachara - DevOps engineer available for opportunities and collaboration." />
       <Meta property="og:url" content="https://zachara.dev/contact" />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:image" content="https://zachara.dev/img/og-contact.png" />
 
       <main class="flex-1 flex items-center justify-center px-6">
         <div class="max-w-lg text-center py-20">
