@@ -18,8 +18,7 @@ helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
 {{- end -}}
 
 {{- define "zachara-dev.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "zachara-dev.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ include "zachara-dev.fullname" . }}
 {{- end -}}
 
 {{- define "zachara-dev.image" -}}
