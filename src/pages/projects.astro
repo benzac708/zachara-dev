@@ -1,0 +1,72 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ProjectCard from "~/components/ProjectCard.astro";
+
+const projects = [
+  {
+    title: "cloud-devops-portfolio",
+    description:
+      "Infrastructure repository for the Oracle Cloud VPS and self-hosted services behind this portfolio. It documents the current Docker, K3s, Traefik, GHCR, GitHub Actions, Tailscale, UFW, and fail2ban setup used to run and secure zachara.dev.",
+    href: "https://github.com/benzac708/cloud-devops-portfolio",
+    tech: ["Docker", "K3s", "Traefik", "GitHub Actions", "GHCR", "Tailscale"],
+    featured: true,
+    live: true,
+  },
+  {
+    title: "zachara-dev",
+    description:
+      "This portfolio site is built with Astro and packaged as a Docker image. GitHub Actions builds and publishes the image to GHCR, and the app is served on the Oracle Cloud VPS through Traefik and K3s.",
+    href: "https://github.com/benzac708/zachara-dev",
+    tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s", "GHCR"],
+    live: true,
+  },
+  {
+    title: "vps-infrastructure",
+    description:
+      "Self-hosted Ubuntu Oracle Cloud VPS running K3s and multiple containerized applications. It uses Traefik for ingress, Tailscale for secure access, UFW and fail2ban for host security, and shell automation for routine maintenance.",
+    href: "https://github.com/benzac708",
+    tech: ["K3s", "Traefik", "Tailscale", "UFW", "fail2ban", "Oracle Cloud"],
+    live: true,
+  },
+  {
+    title: "cloud-app",
+    description:
+      "Application deployment example using Docker, K3s, health checks, and Traefik ingress routing. Focused on a simple production-style path from container build to live service.",
+    href: "https://github.com/benzac708/cloud-app",
+    tech: ["K3s", "Docker", "Traefik", "Python"],
+    live: true,
+  },
+  {
+    title: "aws-lab",
+    description:
+      "AWS infrastructure lab environment for hands-on practice with cloud services. VPC networking, EC2 instances, S3 storage, IAM policies, and Terraform provisioning.",
+    href: "https://github.com/benzac708/aws-lab",
+    tech: ["AWS", "Terraform", "VPC", "IAM", "EC2"],
+  },
+  {
+    title: "terraform-localstack",
+    description:
+      "Terraform modules tested against LocalStack for local AWS development. Provisions S3 buckets, DynamoDB tables, Lambda functions, and API Gateway endpoints without cloud costs.",
+    href: "https://github.com/benzac708/terraform-localstack",
+    tech: ["Terraform", "LocalStack", "AWS", "S3", "Lambda"],
+  },
+];
+---
+
+<BaseLayout
+  title="Projects - Bernard Zachara"
+  description="DevOps projects by Bernard Zachara - Docker deployments, K3s workloads, CI/CD, and self-hosted infrastructure."
+  canonical="https://zachara.dev/projects"
+  ogImage="https://zachara.dev/img/og-projects.png"
+>
+  <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
+    <div class="mb-12 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Projects</h1>
+      <p class="text-slate-400">Hands-on DevOps work - each repo is a working demonstration of infrastructure skills.</p>
+    </div>
+
+    <div class="grid gap-6">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </main>
+</BaseLayout>

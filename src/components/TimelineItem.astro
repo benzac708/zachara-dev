@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  bullets: string[];
+  active?: boolean;
+}
+
+const { title, date, bullets, active = false } = Astro.props;
+---
+
+<div class="relative pl-6 border-l-2 border-slate-700">
+  <div class={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-slate-900 ${active ? "bg-emerald-400" : "bg-slate-600"}`}></div>
+  <div class="mb-1">
+    <h3 class="text-lg font-semibold text-white">{title}</h3>
+    <p class={`text-sm ${active ? "text-emerald-400" : "text-slate-500"}`}>{date}</p>
+  </div>
+  <ul class="text-slate-400 text-sm space-y-1 mt-2">
+    {bullets.map((bullet) => <li>• {bullet}</li>)}
+  </ul>
+</div>

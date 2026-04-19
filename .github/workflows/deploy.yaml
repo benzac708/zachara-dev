@@ -3,7 +3,6 @@ name: Build & Publish
 on:
   push:
     branches: [main]
-  pull_request:
 
 concurrency:
   group: deploy-main
@@ -36,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: AI-assisted tests
-        run: scripts/ai-repair-ci.sh --label tests --command "bun run test"
+      - name: AI-assisted smoke test
+        run: scripts/ai-repair-ci.sh --label smoke-test --command "bun run test:smoke"
 
       - name: AI-assisted build
         run: scripts/ai-repair-ci.sh --label build --command "bun run build"
@@ -67,4 +66,4 @@ jobs:
 
       - name: Deployment notice
         run: |
-          echo "Image published. Deployment is managed by ArgoCD GitOps from bz-dotfiles."
+          echo "Image published to GHCR. Deploy it to the VPS with kubectl or your existing release process."

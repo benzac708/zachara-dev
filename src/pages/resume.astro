@@ -1,0 +1,104 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import SkillCategory from "~/components/SkillCategory.astro";
+import TimelineItem from "~/components/TimelineItem.astro";
+
+const skills = [
+  { title: "Containers & Orchestration", skills: ["Docker", "Kubernetes", "K3s", "containerd"] },
+  { title: "CI/CD", skills: ["GitHub Actions", "GHCR"] },
+  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure"] },
+  { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
+  { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
+];
+---
+
+<BaseLayout
+  title="Resume - Bernard Zachara | DevOps Engineer"
+  description="Bernard Zachara's resume - DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure."
+  canonical="https://zachara.dev/resume"
+  ogImage="https://zachara.dev/img/og-resume.png"
+  ogType="profile"
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Bernard Zachara',
+    url: 'https://zachara.dev',
+    jobTitle: 'DevOps Engineer',
+    sameAs: ['https://github.com/benzac708'],
+    knowsAbout: ['Docker', 'Kubernetes', 'K3s', 'containerd', 'GitHub Actions', 'GHCR', 'AWS', 'Azure', 'Oracle Cloud', 'Traefik', 'Tailscale', 'UFW', 'fail2ban', 'Bash', 'Python', 'TypeScript', 'YAML'],
+  })} />
+
+  <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
+    <div class="mb-12 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Bernard Zachara</h1>
+      <p class="text-lg text-emerald-400 mb-4">DevOps Engineer</p>
+      <p class="text-slate-400 mb-6">
+        Infrastructure-focused engineer with hands-on experience in container orchestration,
+        CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation,
+        reliability, and building practical systems that can be deployed and operated end to end.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/resume-cloud-devops.pdf" download="resume-cloud-devops.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download Resume PDF
+        </a>
+      </div>
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
+        Skills
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map((cat) => <SkillCategory {...cat} />)}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
+        Experience
+      </h2>
+      <div class="space-y-8">
+        <TimelineItem
+          title="DevOps Engineer - Self-Directed Projects"
+          date="2024 - Present"
+          active={true}
+          bullets={[
+            'Built and maintained a K3s cluster on an Ubuntu-based Oracle Cloud VPS with Traefik ingress',
+            'Designed CI/CD pipelines with GitHub Actions for container builds and GHCR publishing',
+            'Secured host and admin access with Tailscale, UFW, fail2ban, and SSH keys',
+            'Automated maintenance tasks with Bash scripts, cron, and systemd timers',
+            'Containerized applications with Docker using multi-stage builds and security best practices',
+          ]}
+        />
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
+        Education & Certifications
+      </h2>
+      <div class="space-y-4">
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-semibold text-white">University of Information Technology and Management in Rzeszów</h3>
+            <span class="text-sm text-slate-400 whitespace-nowrap">Expected March 2028</span>
+          </div>
+        </div>
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+          <h3 class="font-semibold text-white">Continuous Self-Directed Learning</h3>
+          <p class="text-sm text-slate-400 mt-1">
+            Cloud architecture, Kubernetes administration, infrastructure as code, and DevOps
+            practices through hands-on projects, labs, and industry documentation.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

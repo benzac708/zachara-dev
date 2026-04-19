@@ -11,7 +11,7 @@ COPY package.json bun.lock* ./
 RUN bun install --frozen-lockfile 2>/dev/null || bun install
 
 # Copy source and build
-COPY app.config.ts tsconfig.json postcss.config.mjs ./
+COPY astro.config.mjs tsconfig.json postcss.config.mjs ./
 COPY src/ ./src/
 COPY public/ ./public/
 

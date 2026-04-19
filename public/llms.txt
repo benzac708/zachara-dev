@@ -1,10 +1,10 @@
 # Ben Zachara — DevOps Engineer
 
-> Personal portfolio and resume site for Ben Zachara, a DevOps engineer specializing in Kubernetes, Terraform, CI/CD, and cloud-native architecture.
+> Personal portfolio and resume site for Ben Zachara, a DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
 
 ## About
 
-Ben Zachara is a DevOps engineer building reliable infrastructure with Kubernetes, Terraform, and CI/CD pipelines. He automates everything.
+Ben Zachara is a DevOps engineer building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
 
 ## Pages
 
@@ -16,12 +16,11 @@ Ben Zachara is a DevOps engineer building reliable infrastructure with Kubernete
 
 ## Skills
 
-- Containers & Orchestration: Kubernetes, Docker, K3s, Helm, containerd
-- Infrastructure as Code: Terraform, CloudFormation, Ansible
-- CI/CD: GitHub Actions, GitLab CI, ArgoCD
-- Cloud Platforms: AWS, Oracle Cloud, CloudFlare
-- Monitoring & Observability: Prometheus, Grafana, ELK Stack
-- Scripting & Languages: Bash, Python, TypeScript, Go, YAML
+- Containers & Orchestration: Docker, Kubernetes, K3s, containerd
+- CI/CD: GitHub Actions, GHCR
+- Cloud Platforms: Oracle Cloud, AWS, Azure
+- Networking & Security: Traefik, Tailscale, UFW, fail2ban
+- Scripting & Languages: Bash, Python, TypeScript, YAML
 
 ## Contact
 
