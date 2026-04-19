@@ -37,12 +37,50 @@ docker run --rm -p 8080:8080 zachara-dev
 # Visit http://localhost:8080
 ```
 
+## Monorepo Layout
+
+```text
+.
+├── deploy/
+│   ├── argocd/
+│   └── helm/
+├── infra/
+│   └── terraform/
+├── scripts/
+├── src/
+└── .github/workflows/
+```
+
 ## Deploy
 
-Push to `main` triggers GitHub Actions:
-1. Builds the Astro site
-2. Pushes to ghcr.io/benzac708/zachara-dev
-3. Makes the latest image available for deployment on the VPS
+The repo now models a GitOps deployment flow:
+
+1. Push to `main` triggers GitHub Actions.
+2. CI builds the Astro site and pushes an image to GHCR.
+3. Production release state is tracked in `deploy/helm/zachara-dev/values-prod.yaml` using an image digest.
+4. ArgoCD watches git and syncs K3s to match the chart and production values.
+5. Rollback is a git revert of the digest change.
+
+Until ArgoCD is installed and managing the app, the current `kubectl` flow remains the fallback path.
+
+## Helm and ArgoCD
+
+- Helm chart: `deploy/helm/zachara-dev`
+- ArgoCD application: `deploy/argocd/zachara-dev-prod-application.yaml`
+
+Render the chart locally with:
+
+```bash
+helm template zachara-dev ./deploy/helm/zachara-dev -f ./deploy/helm/zachara-dev/values-prod.yaml
+```
+
+## Terraform Scope
+
+Terraform is reserved for reproducible infrastructure and lab environments, not normal application releases.
+
+- Oracle bootstrap plan: `infra/terraform/oracle-vps/`
+- AWS lab plan: `infra/terraform/aws-lab/`
+- Azure lab plan: `infra/terraform/azure-lab/`
 
 ## AI-assisted CI
 

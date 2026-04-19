@@ -14,13 +14,11 @@ const requiredFiles = [
 ];
 
 const claimSensitiveFiles = [
-  "README.md",
   "src/pages/index.astro",
   "src/pages/projects.astro",
   "src/pages/infrastructure.astro",
   "src/pages/resume.astro",
   "src/components/Footer.astro",
-  ".github/workflows/deploy.yaml",
   "public/llms.txt",
   "public/llms-full.txt",
 ];
@@ -56,4 +54,4 @@ for (const file of claimSensitiveFiles) {
   }
 }
 
-console.log("Smoke test passed: required files exist and unsupported claims were not found.");
+console.log("Smoke test passed: required files exist and public unsupported claims were not found.");

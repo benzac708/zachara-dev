@@ -1,9 +1,11 @@
 .git
 .github
-helm
+deploy
+infra
 *.md
 .dockerignore
 .gitignore
 node_modules
 .output
 .vinxi
+.astro

@@ -1,0 +1,15 @@
+image:
+  repository: ghcr.io/benzac708/zachara-dev
+  digest: sha256:8a8694c6e5870896e0967a53894ad5779e27efb385fb61f52ef3de27187ccc44
+  pullPolicy: IfNotPresent
+
+ingress:
+  hosts:
+    - host: zachara.dev
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: www.zachara.dev
+      paths:
+        - path: /
+          pathType: Prefix

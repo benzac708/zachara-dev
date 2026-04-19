@@ -3,13 +3,15 @@ name: Build & Publish
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - deploy/helm/zachara-dev/values-prod.yaml
 
 concurrency:
   group: deploy-main
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 env:
@@ -19,6 +21,7 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    if: github.actor != 'github-actions[bot]'
 
     env:
       CI_AI_MODEL: opencode/big-picle
@@ -26,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -55,6 +60,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push image
+        id: build_image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -64,6 +70,32 @@ jobs:
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Update production digest
+        run: |
+          python - <<'PY'
+          import pathlib
+          import re
+
+          path = pathlib.Path('deploy/helm/zachara-dev/values-prod.yaml')
+          content = path.read_text()
+          digest = '${{ steps.build_image.outputs.digest }}'
+          updated = re.sub(r'digest:\s*sha256:[0-9a-f]+', f'digest: {digest}', content)
+          if updated == content:
+              print('Digest already current; nothing to update.')
+          else:
+              path.write_text(updated)
+              print(f'Updated production digest to {digest}')
+          PY
+
+      - name: Commit production digest
+        run: |
+          git diff --quiet deploy/helm/zachara-dev/values-prod.yaml && exit 0
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add deploy/helm/zachara-dev/values-prod.yaml
+          git commit -m "chore: promote image ${{ steps.build_image.outputs.digest }}"
+          git push
+
       - name: Deployment notice
         run: |
-          echo "Image published to GHCR. Deploy it to the VPS with kubectl or your existing release process."
+          echo "Image published to GHCR and production digest updated in git for ArgoCD sync."
