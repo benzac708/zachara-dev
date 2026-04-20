@@ -6,13 +6,13 @@ import TechBadge from "~/components/TechBadge.astro";
 import TimelineItem from "~/components/TimelineItem.astro";
 
 const techs = [
-  "Kubernetes", "Docker", "K3s", "GitHub Actions", "GHCR",
-  "Oracle Cloud", "Linux", "Python", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
+  "Docker", "K3s", "GitHub Actions", "GHCR", "ArgoCD",
+  "Oracle Cloud", "Linux", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
 ];
 
 const infrastructureHighlights = [
   {
-    title: "Kubernetes Cluster",
+    title: "K3s Cluster",
     description: "Single-node K3s cluster running the portfolio and supporting services on one Oracle Cloud VPS",
     icon: "kubernetes",
     metrics: ["K3s", "Traefik", "Single Node"],
@@ -50,44 +50,38 @@ const tools = [
 
 const projects = [
   {
-    title: "cloud-devops-portfolio",
+    title: "zachara-dev",
     description:
-      "Infrastructure repository for the Oracle Cloud VPS and self-hosted services behind this portfolio. It documents the current Docker, K3s, Traefik, GHCR, GitHub Actions, Tailscale, UFW, and fail2ban setup used to run and secure zachara.dev.",
-    href: "https://github.com/benzac708/cloud-devops-portfolio",
-    tech: ["Docker", "K3s", "Traefik", "GitHub Actions", "GHCR", "Tailscale"],
+      "This portfolio site. Built with Astro, packaged in Docker, deployed to K3s on Oracle Cloud VPS. GitHub Actions builds → GHCR → ArgoCD → K3s.",
+    href: "https://github.com/benzac708/zachara-dev",
+    tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s", "ArgoCD"],
     featured: true,
     live: true,
   },
   {
-    title: "zachara-dev",
+    title: "vps-ops-toolkit",
     description:
-      "This portfolio site is built with Astro and packaged as a Docker image. GitHub Actions builds and publishes the image to GHCR, and the app is served on the Oracle Cloud VPS through Traefik and K3s.",
-    href: "https://github.com/benzac708/zachara-dev",
-    tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s", "GHCR"],
-    live: true,
+      "VPS maintenance scripts — safe reboot with K3s drain, disk/Docker cleanup, security health checks, auto-updates. Real ops automation.",
+    href: "https://github.com/benzac708/vps-ops-toolkit",
+    tech: ["Bash", "K3s", "UFW", "fail2ban"],
+    featured: false,
+    live: false,
   },
   {
-    title: "vps-infrastructure",
+    title: "cloud-labs-iac",
     description:
-      "Self-hosted Ubuntu Oracle Cloud VPS running K3s and multiple containerized applications. It uses Traefik for ingress, Tailscale for secure access, UFW and fail2ban for host security, and shell automation for routine maintenance.",
-    href: "https://github.com/benzac708",
-    tech: ["K3s", "Traefik", "Tailscale", "UFW", "fail2ban", "Oracle Cloud"],
-    live: true,
-  },
-  {
-    title: "cloud-app",
-    description:
-      "Application deployment example using Docker, K3s, health checks, and Traefik ingress routing. Focused on a simple production-style path from container build to live service.",
-    href: "https://github.com/benzac708/cloud-app",
-    tech: ["K3s", "Docker", "Traefik", "Python"],
-    live: true,
+      "Terraform labs for AWS and Azure — VPC with 3-tier networking, NAT, bastion, endpoints. Practice infrastructure as code.",
+    href: "https://github.com/benzac708/cloud-labs-iac",
+    tech: ["Terraform", "AWS", "Azure", "VPC"],
+    featured: false,
+    live: false,
   },
 ];
 
 const skills = [
-  { title: "Containers & Orchestration", skills: ["Docker", "Kubernetes", "K3s", "containerd"] },
-  { title: "CI/CD", skills: ["GitHub Actions", "GHCR"] },
-  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure"] },
+  { title: "Containers & Orchestration", skills: ["Docker", "K3s"] },
+  { title: "CI/CD", skills: ["GitHub Actions", "GHCR", "ArgoCD"] },
+  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure Terraform"] },
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
 ];
