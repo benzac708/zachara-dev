@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/benzac708/zachara-dev
-  digest: sha256:d66660b4ec863816a4996397d060da7138ce9971e0eebd101e6cac7c23dad312
+  digest: sha256:7319be8af218a362884068f650c618687b2f9af34983144728eb0ae39d8d87eb
   pullPolicy: Always
 
 ingress:
