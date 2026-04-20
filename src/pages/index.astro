@@ -146,33 +146,7 @@ const skills = [
 
         
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {infrastructureHighlights.map((item) => (
-            <div class="bg-black border border-slate-700 rounded-lg p-6 hover:border-emerald-400/50 transition">
-              <div class="flex items-start gap-4 mb-4">
-                <div class="w-12 h-12 rounded-lg bg-emerald-400/10 flex items-center justify-center flex-shrink-0">
-                  <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${item.icon}/${item.icon}-original.svg`} alt={item.title} class="w-8 h-8" />
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold text-white mb-1">{item.title}</h3>
-                  <p class="text-slate-400 text-sm">{item.description}</p>
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                {item.metrics.map((metric) => <span class="px-2 py-1 bg-slate-700/50 text-slate-300 text-xs font-mono rounded">{metric}</span>)}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {tools.map((tech) => (
-            <div class="flex items-center gap-3 p-3 bg-black/30 border border-slate-700/50 rounded-lg">
-              <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}/${tech.icon}-original.svg`} alt={tech.name} class="w-6 h-6" />
-              <span class="text-slate-300 text-sm font-medium">{tech.name}</span>
-            </div>
-          ))}
-        </div>
+        
       </div>
     </section>
 
