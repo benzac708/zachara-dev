@@ -1,10 +1,9 @@
-# Azure Lab Terraform Plan
+# Azure Lab Plan
 
-Use this directory for a separate learning environment that demonstrates:
+This directory is reserved for a larger Azure practice environment.
 
-- resource groups
-- virtual networks and NSGs
-- Linux VM provisioning
-- managed identity and networking basics
+For the minimal Terraform VM lab used for the portfolio and job application, use:
 
-This is a lab environment, not the production deployment path for `zachara.dev`.
+- `../azure-lab-minimal/`
+
+That smaller lab is the one intended for `terraform init`, `plan`, `apply`, verification, and `destroy` today.

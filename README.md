@@ -80,7 +80,9 @@ Terraform is reserved for reproducible infrastructure and lab environments, not 
 
 - Oracle bootstrap plan: `infra/terraform/oracle-vps/`
 - AWS lab plan: `infra/terraform/aws-lab/`
+- Minimal AWS EC2 lab: `infra/terraform/aws-lab-minimal/`
 - Azure lab plan: `infra/terraform/azure-lab/`
+- Minimal Azure VM lab: `infra/terraform/azure-lab-minimal/`
 
 ## AI-assisted CI
 

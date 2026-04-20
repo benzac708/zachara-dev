@@ -17,4 +17,6 @@ Do not use Terraform here for normal application releases. Helm and ArgoCD own a
 
 - `terraform/oracle-vps/`: Oracle bootstrap plan and notes
 - `terraform/aws-lab/`: AWS practice environment plan and notes
-- `terraform/azure-lab/`: Azure practice environment plan and notes
+- `terraform/aws-lab-minimal/`: minimal AWS EC2 lab with Terraform
+- `terraform/azure-lab-minimal/`: minimal Azure VM lab with Terraform
+- `terraform/azure-lab/`: larger Azure practice environment plan and notes
