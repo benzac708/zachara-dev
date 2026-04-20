@@ -89,7 +89,10 @@ jobs:
 
       - name: Commit production digest
         run: |
-          git diff --quiet deploy/helm/zachara-dev/values-prod.yaml && exit 0
+          if git diff --quiet deploy/helm/zachara-dev/values-prod.yaml; then
+            echo "Digest already current; nothing to push."
+            exit 0
+          fi
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add deploy/helm/zachara-dev/values-prod.yaml
