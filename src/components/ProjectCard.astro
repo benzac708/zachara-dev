@@ -11,7 +11,7 @@ interface Props {
 const { title, description, href, tech, featured = false, live = false } = Astro.props;
 ---
 
-<div class={`bg-slate-800/50 border ${featured ? "border-emerald-400/50 ring-1 ring-emerald-400/20" : "border-slate-700"} rounded-lg p-6 hover:border-emerald-400/50 transition group relative`}>
+<div class={`bg-black border ${featured ? "border-emerald-400/50 ring-1 ring-emerald-400/20" : "border-slate-800"} rounded-lg p-6 hover:border-emerald-400/50 transition group relative`}>
   {featured && (
     <div class="absolute -top-3 left-4">
       <span class="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded">FEATURED</span>
