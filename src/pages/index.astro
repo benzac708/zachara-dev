@@ -6,7 +6,7 @@ import TechBadge from "~/components/TechBadge.astro";
 import TimelineItem from "~/components/TimelineItem.astro";
 
 const techs = [
-  "Docker", "K3s (Kubernetes)", "GitHub Actions", "GHCR", "ArgoCD",
+  "Docker", "K3s (Kubernetes)", "GitHub Actions", "GHCR", "Helm",
   "Oracle Cloud", "Linux", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
 ];
 
@@ -14,9 +14,9 @@ const projects = [
   {
     title: "zachara-dev",
     description:
-      "This portfolio site. Built with Astro, packaged in Docker, deployed to K3s on Oracle Cloud VPS. GitHub Actions builds → GHCR → ArgoCD → K3s.",
+      "This portfolio site. Built with Astro, packaged in Docker, deployed to K3s on an Oracle Cloud VPS. GitHub Actions builds → GHCR → Helm → K3s.",
     href: "https://github.com/benzac708/zachara-dev",
-    tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s", "ArgoCD"],
+    tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s", "Helm"],
     featured: true,
     live: true,
   },
@@ -42,7 +42,7 @@ const projects = [
 
 const skills = [
   { title: "Containers & Orchestration", skills: ["Docker", "K3s (Kubernetes)"] },
-  { title: "CI/CD", skills: ["GitHub Actions", "GHCR", "ArgoCD"] },
+  { title: "CI/CD", skills: ["GitHub Actions", "GHCR", "Helm"] },
   { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure Terraform"] },
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },

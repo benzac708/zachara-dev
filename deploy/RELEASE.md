@@ -1,30 +1,24 @@
 # Production Release Flow
 
-This monorepo uses GitOps release state under `deploy/`.
-
 ## Normal Flow
 
 1. Merge application code to `main`.
 2. GitHub Actions builds and pushes the image to GHCR.
 3. GitHub Actions captures the pushed image digest.
-4. GitHub Actions updates `deploy/helm/zachara-dev/values-prod.yaml` with that digest.
-5. GitHub Actions commits the digest change back to `main`.
-6. ArgoCD syncs the cluster.
-7. Verify site health and rollout status.
+4. GitHub Actions runs `helm upgrade --install` against the K3s cluster using that digest.
+5. Verify site health and rollout status.
 
-## Current Promotion Policy
+## Promotion Policy
 
-This repo currently uses a direct commit back to `main` for digest promotion.
+This repo deploys directly from CI instead of committing release state back into git.
 
-That is acceptable for a solo production setup because:
+That keeps the path simple for a personal infrastructure project because:
 
-- application code is already reviewed before merge
-- the follow-up commit only changes the immutable image digest
-- ArgoCD deploys only what is recorded in git
+- the application commit is the only production trigger
+- the cluster still receives an immutable image digest
+- there is no second “promotion commit” to reconcile
 
-If you later want a stricter approval boundary, switch this step to an automated pull request instead of a direct commit.
-
-## Example Digest Update
+## Example Deploy
 
 ```yaml
 image:
@@ -34,11 +28,11 @@ image:
 
 ## Rollback
 
-1. Revert the commit that changed `values-prod.yaml`.
+1. Revert the application commit you want to roll back.
 2. Push the revert.
-3. Let ArgoCD sync the previous digest.
+3. Let GitHub Actions rebuild and redeploy.
 4. Verify health.
 
 ## Emergency Recovery
 
-If ArgoCD is unavailable, use a one-off manual `kubectl set image` with a pinned digest. After recovery, update git so ArgoCD and cluster state match again.
+If GitHub Actions is unavailable, use a one-off `helm upgrade --install` or `kubectl set image` with a pinned digest.

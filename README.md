@@ -23,7 +23,7 @@ Browser → HTTPS → Traefik → K3s Service → nginx container → Static HTM
 - **Orchestration:** K3s
 - **Ingress:** Traefik
 - **Network Security:** Tailscale, UFW, fail2ban
-- **CI/CD:** GitHub Actions (build → push)
+- **CI/CD:** GitHub Actions (build → push → Helm deploy)
 
 ## Local Development
 
@@ -42,7 +42,6 @@ docker run --rm -p 8080:8080 zachara-dev
 ```text
 .
 ├── deploy/
-│   ├── argocd/
 │   └── helm/
 ├── infra/
 │   └── terraform/
@@ -53,20 +52,16 @@ docker run --rm -p 8080:8080 zachara-dev
 
 ## Deploy
 
-The repo now models a GitOps deployment flow:
+The repo deploys directly from GitHub Actions to K3s:
 
 1. Push to `main` triggers GitHub Actions.
 2. CI builds the Astro site and pushes an image to GHCR.
-3. Production release state is tracked in `deploy/helm/zachara-dev/values-prod.yaml` using an image digest.
-4. ArgoCD watches git and syncs K3s to match the chart and production values.
-5. Rollback is a git revert of the digest change.
+3. CI uses Helm to deploy the new immutable image digest straight to the K3s cluster.
+4. Rollback is a revert or redeploy of the previous application commit.
 
-Until ArgoCD is installed and managing the app, the current `kubectl` flow remains the fallback path.
-
-## Helm and ArgoCD
+## Helm
 
 - Helm chart: `deploy/helm/zachara-dev`
-- ArgoCD application: `deploy/argocd/zachara-dev-prod-application.yaml`
 
 Render the chart locally with:
 

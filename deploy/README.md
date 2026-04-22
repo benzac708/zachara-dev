@@ -1,23 +1,21 @@
 # Deploy
 
-This directory is the git source of truth for production deployment state.
+This directory contains the production deployment chart and release docs.
 
 ## Layout
 
 - `helm/zachara-dev/`: application chart
-- `argocd/`: ArgoCD application manifests
 
 ## Release Flow
 
 1. App changes land in `main`.
 2. GitHub Actions builds and pushes the container image to GHCR.
-3. The release step updates `deploy/helm/zachara-dev/values-prod.yaml` with the pushed image digest.
-4. ArgoCD watches this repo and syncs the cluster to match git.
-5. Rollback is a git revert of the digest change.
+3. The release step deploys the pushed image digest directly to K3s with Helm.
+4. Rollback is a revert or redeploy of the previous application commit.
 
 ## Rules
 
 - Production uses image digests, not mutable tags.
 - Helm owns Kubernetes application manifests.
-- ArgoCD watches git, not the image registry.
+- GitHub Actions is the deploy entrypoint for this application.
 - Manual `kubectl set image` is only for emergency recovery.
