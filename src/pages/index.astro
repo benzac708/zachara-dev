@@ -12,14 +12,13 @@ const projects = [
   {
     title: "zachara-dev",
     description:
-      "This portfolio site. Built with Astro, packaged in Docker, deployed to K3s on an Oracle Cloud VPS.",
+      "Personal portfolio site deployed to K3s on an Oracle Cloud VPS with Docker and GitHub Actions.",
     href: "https://github.com/benzac708/zachara-dev",
     tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s"],
     details: [
-      "K3s cluster on Oracle Cloud VPS with Traefik ingress",
-      "CI/CD: GitHub Actions builds → GHCR → kubectl deploy",
-      "Host security: Tailscale, UFW, fail2ban, SSH keys",
-      "Systemd timers for auto-updates",
+      "Used K3s to keep Kubernetes lightweight on a single VPS",
+      "CI/CD: GitHub Actions builds, pushes to GHCR, and deploys with kubectl",
+      "Secured host access with Tailscale, UFW, fail2ban, and SSH keys",
     ],
     featured: true,
     live: true,
@@ -27,14 +26,13 @@ const projects = [
   {
     title: "aws-lab",
     description:
-      "Terraform labs for AWS — EC2, security group, VPC.",
+      "Terraform labs for core AWS infrastructure: EC2, networking, and security controls.",
     href: "https://github.com/benzac708/aws-lab",
     tech: ["Terraform", "AWS", "EC2"],
     details: [
-      "EC2 instance provisioning",
-      "Security group rules",
-      "VPC with public subnet and NAT",
-      "init → plan → apply → destroy",
+      "Provisioned EC2 instances and supporting network resources with Terraform",
+      "Practiced VPC and security group setup for basic cloud isolation",
+      "Used the full init → plan → apply → destroy workflow",
     ],
     featured: false,
     live: false,
@@ -42,14 +40,13 @@ const projects = [
   {
     title: "azure-lab",
     description:
-      "Terraform labs for Azure — VM, VNet, NSG.",
+      "Terraform labs for core Azure infrastructure: VM, VNet, and network security.",
     href: "https://github.com/benzac708/azure-lab",
     tech: ["Terraform", "Azure", "VM"],
     details: [
-      "Virtual machine provisioning",
-      "Virtual Network (VNet)",
-      "Network Security Group (NSG)",
-      "init → plan → apply → destroy",
+      "Provisioned Azure VMs and networking resources with Terraform",
+      "Practiced VNet and NSG configuration for controlled access",
+      "Used the full init → plan → apply → destroy workflow",
     ],
     featured: false,
     live: false,
@@ -57,14 +54,13 @@ const projects = [
   {
     title: "vps-ops-toolkit",
     description:
-      "VPS maintenance scripts — safe reboot with K3s drain, cleanup, security checks.",
+      "Bash scripts for VPS maintenance, guarded reboots, cleanup, and security checks.",
     href: "https://github.com/benzac708/vps-ops-toolkit",
     tech: ["Bash", "K3s", "UFW", "fail2ban"],
     details: [
-      "Safe reboot with K3s drain/uncordon",
-      "Disk and Docker cleanup automation",
-      "Security health check script",
-      "Auto-update via systemd timers",
+      "Added safe reboot flow with K3s drain and recovery steps",
+      "Automated disk, Docker, and package maintenance tasks",
+      "Used systemd timers for recurring updates and host checks",
     ],
     featured: false,
     live: false,
