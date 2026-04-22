@@ -67,6 +67,14 @@ jobs:
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          ping: 100.109.236.124
+
       - name: Set up kubectl
         uses: azure/setup-kubectl@v4
 
@@ -86,7 +94,7 @@ jobs:
             --create-namespace \
             -f ./deploy/helm/zachara-dev/values-prod.yaml \
             --set-string image.digest=${{ steps.build_image.outputs.digest }} \
-            --atomic \
+            --rollback-on-failure \
             --wait \
             --timeout 5m
 
