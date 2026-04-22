@@ -49,6 +49,7 @@ const skills = [
 ];
 
 const sectionRail = "max-w-4xl mx-auto";
+const heroRail = "max-w-4xl mx-auto text-center";
 ---
 
 <BaseLayout
@@ -63,7 +64,7 @@ const sectionRail = "max-w-4xl mx-auto";
     url: 'https://zachara.dev',
     author: {
       '@type': 'Person',
-      name: 'Ben Zachara',
+      name: 'Bernard Zachara',
       url: 'https://zachara.dev',
       jobTitle: 'DevOps Engineer',
       sameAs: ['https://github.com/benzac708'],
@@ -73,8 +74,7 @@ const sectionRail = "max-w-4xl mx-auto";
 
   <main class="flex-1">
     <section id="home" class="scroll-mt-24 px-6 py-20 sm:py-24">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="max-w-3xl mx-auto">
+      <div class={heroRail}>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-4">Bernard Zachara</p>
           <h1 class="text-4xl sm:text-6xl font-bold text-white leading-tight mb-6">
             DevOps engineer focused on shipping and operating real infrastructure.
@@ -87,7 +87,7 @@ const sectionRail = "max-w-4xl mx-auto";
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Download Resume
+              Download Resume PDF
             </a>
             <a href="#projects" class="px-6 py-3 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-semibold rounded-lg transition">View Projects</a>
             <a href="#contact" class="px-6 py-3 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-semibold rounded-lg transition">Contact</a>
@@ -95,7 +95,6 @@ const sectionRail = "max-w-4xl mx-auto";
           <div class="flex flex-wrap gap-2">
             {techs.map((tech) => <TechBadge name={tech} />)}
           </div>
-        </div>
       </div>
     </section>
 
@@ -104,7 +103,7 @@ const sectionRail = "max-w-4xl mx-auto";
         <div class="mb-12 text-center">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Projects</h2>
           <p class="text-slate-400 text-lg">
-            Repositories tied to the work behind this site: infrastructure, deployments, and the app itself.
+            Core work behind this site: delivery pipelines, self-hosted deployments, and the application itself.
           </p>
         </div>
 
@@ -170,7 +169,7 @@ const sectionRail = "max-w-4xl mx-auto";
           <div class="space-y-4">
             <div class="bg-black border border-slate-700 rounded-lg p-4">
               <div class="flex items-start justify-between gap-4">
-                <h4 class="font-semibold text-white">University of Information Technology and Management in Rzeszow</h4>
+                <h4 class="font-semibold text-white">University of Information Technology and Management in Rzeszów</h4>
                 <span class="text-sm text-slate-400 whitespace-nowrap">Expected March 2028</span>
               </div>
             </div>

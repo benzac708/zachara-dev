@@ -5,8 +5,8 @@ import TimelineItem from "~/components/TimelineItem.astro";
 
 const skills = [
   { title: "Containers & Orchestration", skills: ["Docker", "Kubernetes", "K3s", "containerd"] },
-  { title: "CI/CD", skills: ["GitHub Actions", "GHCR"] },
-  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure"] },
+  { title: "CI/CD", skills: ["GitHub Actions", "GHCR", "ArgoCD"] },
+  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure Terraform"] },
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
 ];
@@ -53,7 +53,7 @@ const skills = [
         <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
         Skills
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {skills.map((cat) => <SkillCategory {...cat} />)}
       </div>
     </section>

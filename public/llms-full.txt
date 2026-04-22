@@ -1,10 +1,10 @@
-# Ben Zachara — DevOps Engineer (Full Context)
+# Bernard Zachara — DevOps Engineer (Full Context)
 
-> This is the extended LLM context file for zachara.dev. It contains the complete resume, project details, and technical background for Ben Zachara.
+> This is the extended LLM context file for zachara.dev. It contains the complete resume, project details, and technical background for Bernard Zachara.
 
 ## About
 
-Ben Zachara is an infrastructure-focused DevOps engineer with hands-on experience in container orchestration, CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation, reliability, and building practical systems that can be deployed and operated end to end.
+Bernard Zachara is an infrastructure-focused DevOps engineer with hands-on experience in container orchestration, CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation, reliability, and building practical systems that can be deployed and operated end to end.
 
 ## Skills
 

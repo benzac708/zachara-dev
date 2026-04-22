@@ -1,10 +1,10 @@
-# Ben Zachara — DevOps Engineer
+# Bernard Zachara — DevOps Engineer
 
-> Personal portfolio and resume site for Ben Zachara, a DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
+> Personal portfolio and resume site for Bernard Zachara, a DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
 
 ## About
 
-Ben Zachara is a DevOps engineer building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
+Bernard Zachara is a DevOps engineer building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
 
 ## Pages
 
