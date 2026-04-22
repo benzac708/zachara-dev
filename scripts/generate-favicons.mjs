@@ -44,7 +44,7 @@ await writeFile(
     {
       name: "zachara.dev",
       short_name: "zachara",
-      description: "Bernard Zachara - DevOps Engineer",
+      description: "Bernard Zachara - Cloud / DevOps Enthusiast",
       start_url: "/",
       display: "standalone",
       background_color: "#000000",

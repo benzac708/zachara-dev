@@ -6,15 +6,15 @@ import TimelineItem from "~/components/TimelineItem.astro";
 const skills = [
   { title: "Containers & Orchestration", skills: ["Docker", "Kubernetes", "K3s", "containerd"] },
   { title: "CI/CD", skills: ["GitHub Actions", "GHCR"] },
-  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure"] },
+  { title: "Cloud Platforms", skills: ["Oracle Cloud (production)", "AWS (learning)", "Azure (learning)"] },
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
 ];
 ---
 
 <BaseLayout
-  title="Resume - Bernard Zachara | DevOps Engineer"
-  description="Bernard Zachara's resume - DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure."
+  title="Resume - Bernard Zachara | Cloud / DevOps Enthusiast"
+  description="Bernard Zachara's resume - Cloud and DevOps enthusiast focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure."
   canonical="https://zachara.dev/resume"
   ogImage="https://zachara.dev/img/og-resume.png"
   ogType="profile"
@@ -24,7 +24,7 @@ const skills = [
     '@type': 'Person',
     name: 'Bernard Zachara',
     url: 'https://zachara.dev',
-    jobTitle: 'DevOps Engineer',
+    jobTitle: 'DevOps Engineer Student',
     sameAs: ['https://github.com/benzac708'],
     knowsAbout: ['Docker', 'Kubernetes', 'K3s', 'containerd', 'GitHub Actions', 'GHCR', 'AWS', 'Azure', 'Oracle Cloud', 'Traefik', 'Tailscale', 'UFW', 'fail2ban', 'Bash', 'Python', 'TypeScript', 'YAML'],
   })} />
@@ -32,9 +32,9 @@ const skills = [
   <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
     <div class="mb-12 text-center">
       <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Bernard Zachara</h1>
-      <p class="text-lg text-emerald-400 mb-4">DevOps Engineer</p>
+      <p class="text-lg text-emerald-400 mb-4">Cloud / DevOps Enthusiast</p>
       <p class="text-slate-400 mb-6">
-        Infrastructure-focused engineer with hands-on experience in container orchestration,
+        Self-taught cloud and DevOps enthusiast building hands-on experience in container orchestration,
         CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation,
         reliability, and building practical systems that can be deployed and operated end to end.
       </p>
@@ -57,7 +57,7 @@ const skills = [
       </h2>
       <div class="space-y-8">
         <TimelineItem
-          title="DevOps Engineer - Self-Directed Projects"
+          title="Self-Directed Cloud / DevOps Projects"
           date="2024 - Present"
           active={true}
           bullets={[

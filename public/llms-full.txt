@@ -1,10 +1,10 @@
-# Bernard Zachara — DevOps Engineer (Full Context)
+# Bernard Zachara — Cloud / DevOps Enthusiast (Full Context)
 
 > This is the extended LLM context file for zachara.dev. It contains the complete resume, project details, and technical background for Bernard Zachara.
 
 ## About
 
-Bernard Zachara is an infrastructure-focused DevOps engineer with hands-on experience in container orchestration, CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation, reliability, and building practical systems that can be deployed and operated end to end.
+Bernard Zachara is a Cloud / DevOps enthusiast building hands-on experience in container orchestration, CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation, reliability, and building practical systems that can be deployed and operated end to end.
 
 ## Skills
 
@@ -15,7 +15,7 @@ Docker, Kubernetes, K3s, containerd
 GitHub Actions, GHCR
 
 ### Cloud Platforms
-Oracle Cloud, AWS, Azure
+Oracle Cloud (production), AWS (learning), Azure (learning)
 
 ### Networking & Security
 Traefik, Tailscale, UFW, fail2ban
@@ -25,17 +25,12 @@ Bash, Python, TypeScript, YAML
 
 ## Experience
 
-### DevOps Engineer — Self-Directed Projects (2024 — Present)
+### Self-Directed Cloud / DevOps Projects (2024 — Present)
 - Built and maintained a K3s cluster on an Ubuntu-based Oracle Cloud VPS with Traefik ingress
 - Designed CI/CD pipelines with GitHub Actions for container builds and GHCR publishing
 - Secured host and admin access with Tailscale, UFW, fail2ban, and SSH keys
 - Automated maintenance tasks with Bash scripts, cron, and systemd timers
 - Containerized applications with Docker using multi-stage builds and security best practices
-
-### Technical Support & Systems Administration (Previous Role)
-- Managed Linux servers and networking infrastructure
-- Automated routine tasks with Bash and Python scripts
-- Troubleshot complex system issues across distributed environments
 
 ## Education & Certifications
 
@@ -43,36 +38,27 @@ Bash, Python, TypeScript, YAML
 Expected March 2028
 
 ### Continuous Self-Directed Learning
-Cloud architecture, Kubernetes administration, infrastructure as code, and DevOps practices through hands-on projects, labs, and industry documentation.
+Cloud architecture, Kubernetes administration, infrastructure as code, and DevOps practices through hands-on projects, labs, and documentation.
 
 ### Pursuing
 AWS Solutions Architect · CKA (Certified Kubernetes Administrator)
 
-## Projects
+## Projects (Live on GitHub)
 
 ### zachara-dev
-This portfolio site — built with Astro, TypeScript, and Bun, then pre-rendered to static HTML at build time. GitHub Actions builds a Docker image and publishes it to GHCR for deployment on K3s behind Traefik.
-- Tech: Astro, TypeScript, Bun, Docker, K3s, GitHub Actions
-- GitHub: https://github.com/benzac708/zachara-dev
+This portfolio site — built with Astro, TypeScript, and Bun, then pre-rendered to static HTML. Dockerized and deployed to K3s on Oracle Cloud with GitHub Actions CI/CD.
+- Tech: Astro, TypeScript, Bun, Docker, K3s, GitHub Actions, GHCR
+- URL: https://github.com/benzac708/zachara-dev
 
-### vps-infrastructure
-Self-hosted Ubuntu Oracle Cloud VPS running K3s and multiple containerized applications. It uses Traefik for ingress, Tailscale for secure access, UFW and fail2ban for host security, and shell automation for routine maintenance.
-- Tech: K3s, Traefik, Tailscale, UFW, fail2ban, Oracle Cloud
+### vps-ops-toolkit
+VPS maintenance scripts for Linux hosts running K3s — safe reboot with drain, disk/Docker cleanup, security health checks, auto-updates via systemd timers.
+- Tech: Bash, K3s, UFW, fail2ban, systemd
+- URL: https://github.com/benzac708/vps-ops-toolkit
 
-### cloud-app
-Application deployment example using Docker, K3s, health checks, and Traefik ingress routing. Focused on a simple production-style path from container build to live service.
-- Tech: K3s, Docker, Traefik, Python
-- GitHub: https://github.com/benzac708/cloud-app
-
-### aws-lab
-AWS infrastructure lab environment for hands-on practice with cloud services. VPC networking, EC2 instances, S3 storage, IAM policies, and CloudFormation templates.
-- Tech: AWS, CloudFormation, VPC, IAM, EC2
-- GitHub: https://github.com/benzac708/aws-lab
-
-### terraform-localstack
-Terraform modules tested against LocalStack for local AWS development. Provisions S3 buckets, DynamoDB tables, Lambda functions, and API Gateway endpoints without cloud costs.
-- Tech: Terraform, LocalStack, AWS, S3, Lambda
-- GitHub: https://github.com/benzac708/terraform-localstack
+### cloud-labs-iac
+Terraform learning labs for AWS and Azure — basic infrastructure provisioning to practice init/plan/apply/destroy lifecycle.
+- Tech: Terraform, AWS, Azure
+- URL: https://github.com/benzac708/cloud-labs-iac
 
 ## Infrastructure
 

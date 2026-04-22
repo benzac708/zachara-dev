@@ -32,9 +32,9 @@ const projects = [
   {
     title: "cloud-labs-iac",
     description:
-      "Terraform labs for AWS and Azure — VPC networking, EC2, S3, and IAM. Real cloud provisioning practice with infrastructure as code.",
+      "Terraform labs for AWS and Azure — VPC networking, EC2, and VM provisioning. Learning infrastructure as code.",
     href: "https://github.com/benzac708/cloud-labs-iac",
-    tech: ["Terraform", "AWS", "Azure", "VPC"],
+    tech: ["Terraform", "AWS", "Azure"],
     featured: false,
     live: false,
   },
@@ -43,7 +43,7 @@ const projects = [
 const skills = [
   { title: "Containers & Orchestration", skills: ["Docker", "K3s (Kubernetes)"] },
   { title: "CI/CD", skills: ["GitHub Actions", "GHCR"] },
-  { title: "Cloud Platforms", skills: ["Oracle Cloud", "AWS", "Azure"] },
+  { title: "Cloud Platforms", skills: ["Oracle Cloud (production)", "AWS (learning)", "Azure (learning)"] },
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
 ];
@@ -53,8 +53,8 @@ const heroRail = "max-w-4xl mx-auto text-center";
 ---
 
 <BaseLayout
-  title="Bernard Zachara | DevOps Engineer"
-  description="DevOps engineer building and operating Docker and K3s workloads on an Oracle Cloud VPS with CI/CD and host security."
+  title="Bernard Zachara | Cloud / DevOps Enthusiast"
+  description="Cloud and DevOps enthusiast building and operating Docker and K3s workloads on an Oracle Cloud VPS with CI/CD and host security."
   canonical="https://zachara.dev/"
 >
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -66,7 +66,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
       '@type': 'Person',
       name: 'Bernard Zachara',
       url: 'https://zachara.dev',
-      jobTitle: 'DevOps Engineer',
+      jobTitle: 'DevOps Engineer Student',
       sameAs: ['https://github.com/benzac708'],
       knowsAbout: ['Kubernetes', 'Docker', 'K3s', 'GitHub Actions', 'GHCR', 'Oracle Cloud', 'Traefik', 'Tailscale', 'UFW', 'fail2ban', 'Linux', 'Python', 'Bash'],
     },
@@ -77,7 +77,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
       <div class={heroRail}>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-4">Bernard Zachara</p>
           <h1 class="text-4xl sm:text-6xl font-bold text-white leading-tight mb-6">
-            DevOps engineer focused on shipping and operating real infrastructure.
+            Cloud / DevOps enthusiast building and operating real infrastructure.
           </h1>
           <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
             I build and run Docker and K3s workloads on an Oracle Cloud VPS, with GitHub Actions for delivery, Traefik for ingress, and Tailscale, UFW, and fail2ban securing admin access.
@@ -133,7 +133,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
           </h3>
           <div class="text-left">
             <TimelineItem
-              title="DevOps Engineer - Self-Directed Projects"
+              title="Self-Directed Cloud / DevOps Projects"
               date="2024 - Present"
               active={true}
               bullets={[

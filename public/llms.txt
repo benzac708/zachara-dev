@@ -1,24 +1,16 @@
-# Bernard Zachara — DevOps Engineer
+# Bernard Zachara — Cloud / DevOps Enthusiast
 
-> Personal portfolio and resume site for Bernard Zachara, a DevOps engineer focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
+> Personal portfolio and resume site for Bernard Zachara, a Cloud and DevOps enthusiast focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
 
 ## About
 
-Bernard Zachara is a DevOps engineer building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
-
-## Pages
-
-- [Home](https://zachara.dev/): Landing page with introduction and tech stack
-- [Resume](https://zachara.dev/resume): Full resume with skills, experience, and education
-- [Projects](https://zachara.dev/projects): Hands-on DevOps project portfolio
-- [Contact](https://zachara.dev/contact): Email and GitHub links
-- [Full LLM Context](https://zachara.dev/llms-full.txt): Extended context with complete resume and project details
+Bernard Zachara is a Cloud / DevOps enthusiast building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
 
 ## Skills
 
 - Containers & Orchestration: Docker, Kubernetes, K3s, containerd
 - CI/CD: GitHub Actions, GHCR
-- Cloud Platforms: Oracle Cloud, AWS, Azure
+- Cloud Platforms: Oracle Cloud (production), AWS (learning), Azure (learning)
 - Networking & Security: Traefik, Tailscale, UFW, fail2ban
 - Scripting & Languages: Bash, Python, TypeScript, YAML
 
@@ -27,3 +19,9 @@ Bernard Zachara is a DevOps engineer building reliable infrastructure with Docke
 - Email: bernard@zachara.dev
 - GitHub: https://github.com/benzac708
 - Website: https://zachara.dev
+
+## Live Projects (GitHub)
+
+- [zachara-dev](https://github.com/benzac708/zachara-dev): Portfolio site — Docker + K3s + GitHub Actions
+- [vps-ops-toolkit](https://github.com/benzac708/vps-ops-toolkit): VPS maintenance scripts
+- [cloud-labs-iac](https://github.com/benzac708/cloud-labs-iac): Terraform labs for AWS/Azure
