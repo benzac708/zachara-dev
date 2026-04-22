@@ -18,6 +18,8 @@ const {
   ogImage = `https://zachara.dev/img/og-home.png`,
   ogType = "website",
 } = Astro.props;
+
+const faviconVersion = "20260422";
 ---
 
 <!doctype html>
@@ -36,13 +38,14 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon-48x48.png" sizes="48x48" />
-    <link rel="icon" href="/favicon-64x64.png" sizes="64x64" />
-    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href={`/favicon.svg?v=${faviconVersion}`} type="image/svg+xml" />
+    <link rel="icon" href={`/favicon.ico?v=${faviconVersion}`} sizes="32x32" />
+    <link rel="icon" href={`/favicon-48x48.png?v=${faviconVersion}`} sizes="48x48" />
+    <link rel="icon" href={`/favicon-64x64.png?v=${faviconVersion}`} sizes="64x64" />
+    <link rel="icon" href={`/favicon-16x16.png?v=${faviconVersion}`} sizes="16x16" />
+    <link rel="icon" href={`/favicon-32x32.png?v=${faviconVersion}`} sizes="32x32" />
+    <link rel="apple-touch-icon" href={`/apple-touch-icon.png?v=${faviconVersion}`} />
+    <link rel="manifest" href={`/site.webmanifest?v=${faviconVersion}`} />
   </head>
   <body class="min-h-screen flex flex-col bg-black text-slate-100">
     <Nav currentPath={Astro.url.pathname} />
