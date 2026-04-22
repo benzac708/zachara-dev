@@ -15,7 +15,7 @@ permissions:
 
 env:
   IMAGE_NAME: ghcr.io/benzac708/zachara-dev
-  VPS_HOST: 130.162.230.136
+  VPS_HOST: 92.5.82.69
   VPS_USER: ubuntu
 
 jobs:
