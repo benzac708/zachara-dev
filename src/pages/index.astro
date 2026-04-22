@@ -47,6 +47,8 @@ const skills = [
   { title: "Networking & Security", skills: ["Traefik", "Tailscale", "UFW", "fail2ban"] },
   { title: "Scripting & Languages", skills: ["Bash", "Python", "TypeScript", "YAML"] },
 ];
+
+const sectionRail = "max-w-4xl mx-auto";
 ---
 
 <BaseLayout
@@ -98,8 +100,8 @@ const skills = [
     </section>
 
     <section id="projects" class="scroll-mt-24 px-6 py-16 border-t border-slate-800">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="max-w-3xl mx-auto mb-12">
+      <div class={sectionRail}>
+        <div class="mb-12 text-center">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Projects</h2>
           <p class="text-slate-400 text-lg">
             Repositories tied to the work behind this site: infrastructure, deployments, and the app itself.
@@ -113,9 +115,9 @@ const skills = [
     </section>
 
     <section id="resume" class="scroll-mt-24 px-6 py-16 border-t border-slate-800">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-6 mb-12">
-          <div class="max-w-3xl text-left">
+      <div class={sectionRail}>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-12">
+          <div class="text-left">
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Resume</h2>
             <p class="text-slate-400 text-lg">
               Infrastructure-focused work across containers, CI/CD, cluster operations, and host security.
@@ -134,17 +136,17 @@ const skills = [
             <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
             Skills
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {skills.map((cat) => <SkillCategory {...cat} />)}
           </div>
         </section>
 
         <section class="mb-12">
-          <h3 class="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+          <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
             <span class="w-3 h-0.5 bg-emerald-400 inline-block" />
             Experience
           </h3>
-          <div class="max-w-3xl mx-auto text-left">
+          <div class="text-left">
             <TimelineItem
               title="DevOps Engineer - Self-Directed Projects"
               date="2024 - Present"
@@ -179,8 +181,8 @@ const skills = [
     </section>
 
     <section id="contact" class="scroll-mt-24 px-6 py-16 border-t border-slate-800">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="max-w-3xl mx-auto mb-12">
+      <div class={sectionRail}>
+        <div class="mb-12 text-center">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Contact</h2>
           <p class="text-slate-400 text-lg">
             Open to junior DevOps roles, infrastructure work, and technical conversations around the stack running this site.
