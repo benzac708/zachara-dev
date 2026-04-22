@@ -10,44 +10,6 @@ const techs = [
   "Oracle Cloud", "Linux", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
 ];
 
-const infrastructureHighlights = [
-  {
-    title: "K3s Cluster",
-    description: "Single-node K3s cluster running the portfolio and supporting services on one Oracle Cloud VPS",
-    icon: "kubernetes",
-    metrics: ["K3s", "Traefik", "Single Node"],
-  },
-  {
-    title: "Container Workflow",
-    description: "Applications are packaged as Docker images and published to GHCR for repeatable deployments",
-    icon: "docker",
-    metrics: ["Docker", "GHCR", "Multi-stage Builds"],
-  },
-  {
-    title: "CI Workflow",
-    description: "GitHub Actions builds the app, runs smoke checks, and publishes container images",
-    icon: "github",
-    metrics: ["GitHub Actions", "GHCR", "Smoke Checks"],
-  },
-  {
-    title: "Host Security",
-    description: "The VPS uses Tailscale, UFW, and fail2ban to reduce public exposure and protect admin access",
-    icon: "linux",
-    metrics: ["Tailscale", "UFW", "fail2ban"],
-  },
-];
-
-const tools = [
-  { name: "Docker", icon: "docker" },
-  { name: "K3s", icon: "kubernetes" },
-  { name: "Traefik", icon: "nginx" },
-  { name: "GitHub Actions", icon: "github" },
-  { name: "GHCR", icon: "github" },
-  { name: "Tailscale", icon: "linux" },
-  { name: "UFW", icon: "linux" },
-  { name: "fail2ban", icon: "linux" },
-];
-
 const projects = [
   {
     title: "zachara-dev",
@@ -132,21 +94,6 @@ const skills = [
             {techs.map((tech) => <TechBadge name={tech} />)}
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="infrastructure" class="scroll-mt-24 px-6 py-16 border-t border-slate-800">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="max-w-3xl mx-auto mb-12">
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Infrastructure</h2>
-          <p class="text-slate-400 text-lg">
-            The site runs on one Oracle Cloud VPS: K3s, Traefik ingress, GHCR-hosted images, GitHub Actions builds, and host controls around SSH and admin paths.
-          </p>
-        </div>
-
-        
-
-        
       </div>
     </section>
 

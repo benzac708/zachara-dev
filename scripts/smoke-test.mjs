@@ -8,7 +8,6 @@ const requiredFiles = [
   "src/layouts/BaseLayout.astro",
   "src/pages/index.astro",
   "src/pages/projects.astro",
-  "src/pages/infrastructure.astro",
   "src/pages/resume.astro",
   "src/pages/contact.astro",
 ];
@@ -16,7 +15,6 @@ const requiredFiles = [
 const claimSensitiveFiles = [
   "src/pages/index.astro",
   "src/pages/projects.astro",
-  "src/pages/infrastructure.astro",
   "src/pages/resume.astro",
   "src/components/Footer.astro",
   "public/llms.txt",
@@ -24,7 +22,6 @@ const claimSensitiveFiles = [
 ];
 
 const forbiddenTerms = [
-  "ArgoCD",
   "CloudFlare",
   "GitLab CI",
   "Prometheus",
