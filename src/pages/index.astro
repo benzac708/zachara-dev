@@ -26,6 +26,36 @@ const projects = [
     live: true,
   },
   {
+    title: "aws-lab",
+    description:
+      "Terraform labs for AWS — EC2, security group, VPC.",
+    href: "https://github.com/benzac708/aws-lab",
+    tech: ["Terraform", "AWS", "EC2"],
+    details: [
+      "EC2 instance provisioning",
+      "Security group rules",
+      "VPC with public subnet and NAT",
+      "init → plan → apply → destroy",
+    ],
+    featured: false,
+    live: false,
+  },
+  {
+    title: "azure-lab",
+    description:
+      "Terraform labs for Azure — VM, VNet, NSG.",
+    href: "https://github.com/benzac708/azure-lab",
+    tech: ["Terraform", "Azure", "VM"],
+    details: [
+      "Virtual machine provisioning",
+      "Virtual Network (VNet)",
+      "Network Security Group (NSG)",
+      "init → plan → apply → destroy",
+    ],
+    featured: false,
+    live: false,
+  },
+  {
     title: "vps-ops-toolkit",
     description:
       "VPS maintenance scripts — safe reboot with K3s drain, cleanup, security checks.",
@@ -36,20 +66,6 @@ const projects = [
       "Disk and Docker cleanup automation",
       "Security health check script",
       "Auto-update via systemd timers",
-    ],
-    featured: false,
-    live: false,
-  },
-  {
-    title: "cloud-labs-iac",
-    description:
-      "Terraform labs for AWS and Azure — learning infrastructure as code.",
-    href: "https://github.com/benzac708/cloud-labs-iac",
-    tech: ["Terraform", "AWS", "Azure"],
-    details: [
-      "AWS: EC2, security group, key pair",
-      "Azure: VM, VNet, NSG, public IP",
-      "init → plan → apply → destroy lifecycle",
     ],
     featured: false,
     live: false,
