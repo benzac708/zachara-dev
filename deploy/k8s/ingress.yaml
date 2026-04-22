@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zachara-dev
+  namespace: zachara-dev-prod
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: zachara.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zachara-dev
+                port:
+                  name: http
+    - host: www.zachara.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zachara-dev
+                port:
+                  name: http

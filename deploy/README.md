@@ -1,22 +1,41 @@
 # Deploy
 
-This directory contains the production deployment docs.
+This directory contains Kubernetes manifests for the production deployment.
 
 ## Layout
 
-- `kubectl apply` manifests owned by the cluster (not tracked in git manifests)
-- Kubernetes resources managed directly via `kubectl`
+```
+deploy/k8s/
+├── namespace.yaml     # zachara-dev-prod namespace
+├── deployment.yaml   # App deployment with probes
+├── service.yaml       # ClusterIP service
+├── ingress.yaml       # Traefik ingress
+└── kustomization.yaml # Kustomize bundle
+```
 
-## Release Flow
+## Apply Manifests (full redeploy)
 
-1. App changes land in `main`.
-2. GitHub Actions builds and pushes the container image to GHCR.
-3. GitHub Actions SSHes to the VPS and runs `kubectl set image` with the image digest.
-4. GitHub Actions waits for rollout to complete.
-5. Rollback is a revert or redeploy of the previous application commit.
+```bash
+kubectl apply -k deploy/k8s/
+```
+
+## Update Image Only (common case)
+
+```bash
+kubectl set image deployment/zachara-dev zachara-dev=ghcr.io/benzac708/zachara-dev@sha256:DIGEST -n zachara-dev-prod
+kubectl rollout status deployment/zachara-dev -n zachara-dev-prod --timeout=5m
+```
+
+## CI/CD
+
+GitHub Actions handles this automatically on push to main:
+1. Build and push image to GHCR
+2. SSH to VPS
+3. Update image with kubectl
+4. Wait for rollout
 
 ## Rules
 
-- Production uses image digests, not mutable tags.
-- GitHub Actions is the deploy entrypoint.
-- Manual `kubectl set image` for emergency recovery.
+- Production uses image digests, not mutable tags
+- Manifests in git are the source of truth
+- CI manages image tag updates via kubectl set image

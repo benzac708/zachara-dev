@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zachara-dev
+  namespace: zachara-dev-prod
+spec:
+  selector:
+    app: zachara-dev
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
