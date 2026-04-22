@@ -84,7 +84,7 @@ jobs:
             git fetch origin main
             git checkout main
             git pull --ff-only origin main
-            helm upgrade --install zachara-dev ./deploy/helm/zachara-dev \
+            KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm upgrade --install zachara-dev ./deploy/helm/zachara-dev \
               --namespace zachara-dev-prod \
               --create-namespace \
               -f ./deploy/helm/zachara-dev/values-prod.yaml \
