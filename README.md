@@ -23,7 +23,7 @@ Browser → HTTPS → Traefik → K3s Service → nginx container → Static HTM
 - **Orchestration:** K3s
 - **Ingress:** Traefik
 - **Network Security:** Tailscale, UFW, fail2ban
-- **CI/CD:** GitHub Actions (build → push → Helm deploy)
+- **CI/CD:** GitHub Actions (build → push → SSH → Helm deploy)
 
 ## Local Development
 
@@ -52,11 +52,11 @@ docker run --rm -p 8080:8080 zachara-dev
 
 ## Deploy
 
-The repo deploys directly from GitHub Actions to K3s:
+The repo deploys directly from GitHub Actions to the VPS-hosted K3s cluster:
 
 1. Push to `main` triggers GitHub Actions.
 2. CI builds the Astro site and pushes an image to GHCR.
-3. CI uses Helm to deploy the new immutable image digest straight to the K3s cluster.
+3. CI SSHes to the VPS and runs Helm there to deploy the new immutable image digest to K3s.
 4. Rollback is a revert or redeploy of the previous application commit.
 
 ## Helm

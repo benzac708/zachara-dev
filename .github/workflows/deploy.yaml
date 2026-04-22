@@ -15,6 +15,8 @@ permissions:
 
 env:
   IMAGE_NAME: ghcr.io/benzac708/zachara-dev
+  VPS_HOST: 130.162.230.136
+  VPS_USER: ubuntu
 
 jobs:
   build-and-publish:
@@ -67,37 +69,30 @@ jobs:
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Connect to Tailscale
-        uses: tailscale/github-action@v4
-        with:
-          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-          tags: tag:ci
-          ping: 100.109.236.124
-
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
-
-      - name: Set up Helm
-        uses: azure/setup-helm@v4
-
-      - name: Configure kubeconfig
+      - name: Configure SSH
         run: |
-          mkdir -p "${HOME}/.kube"
-          echo "${{ secrets.KUBE_CONFIG_B64 }}" | base64 -d > "${HOME}/.kube/config"
-          chmod 600 "${HOME}/.kube/config"
+          install -m 700 -d "${HOME}/.ssh"
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > "${HOME}/.ssh/id_ed25519"
+          chmod 600 "${HOME}/.ssh/id_ed25519"
+          ssh-keyscan -H "${VPS_HOST}" >> "${HOME}/.ssh/known_hosts"
 
-      - name: Deploy to K3s with Helm
+      - name: Deploy on VPS with Helm
         run: |
-          helm upgrade --install zachara-dev ./deploy/helm/zachara-dev \
-            --namespace zachara-dev-prod \
-            --create-namespace \
-            -f ./deploy/helm/zachara-dev/values-prod.yaml \
-            --set-string image.digest=${{ steps.build_image.outputs.digest }} \
-            --rollback-on-failure \
-            --wait \
-            --timeout 5m
+          ssh "${VPS_USER}@${VPS_HOST}" "
+            set -euo pipefail
+            cd /home/${VPS_USER}/Repos/zachara-dev
+            git fetch origin main
+            git checkout main
+            git pull --ff-only origin main
+            helm upgrade --install zachara-dev ./deploy/helm/zachara-dev \
+              --namespace zachara-dev-prod \
+              --create-namespace \
+              -f ./deploy/helm/zachara-dev/values-prod.yaml \
+              --set-string image.digest=${{ steps.build_image.outputs.digest }} \
+              --wait \
+              --timeout 5m
+          "
 
       - name: Deployment notice
         run: |
-          echo "Image published to GHCR and deployed directly to K3s with Helm."
+          echo "Image published to GHCR and deployed on the VPS with Helm."

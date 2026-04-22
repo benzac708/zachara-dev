@@ -5,7 +5,7 @@
 1. Merge application code to `main`.
 2. GitHub Actions builds and pushes the image to GHCR.
 3. GitHub Actions captures the pushed image digest.
-4. GitHub Actions runs `helm upgrade --install` against the K3s cluster using that digest.
+4. GitHub Actions SSHes to the VPS and runs `helm upgrade --install` there using that digest.
 5. Verify site health and rollout status.
 
 ## Promotion Policy
