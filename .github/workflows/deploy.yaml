@@ -76,7 +76,7 @@ jobs:
           chmod 600 "${HOME}/.ssh/id_ed25519"
           ssh-keyscan -H "${VPS_HOST}" >> "${HOME}/.ssh/known_hosts"
 
-      - name: Deploy on VPS with Helm
+      - name: Deploy on VPS with kubectl
         run: |
           ssh "${VPS_USER}@${VPS_HOST}" "
             set -euo pipefail
@@ -84,15 +84,10 @@ jobs:
             git fetch origin main
             git checkout main
             git pull --ff-only origin main
-            KUBECONFIG=/etc/rancher/k3s/k3s.yaml helm upgrade --install zachara-dev ./deploy/helm/zachara-dev \
-              --namespace zachara-dev-prod \
-              --create-namespace \
-              -f ./deploy/helm/zachara-dev/values-prod.yaml \
-              --set-string image.digest=${{ steps.build_image.outputs.digest }} \
-              --wait \
-              --timeout 5m
+            KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl set image deployment/zachara-dev zachara-dev=${{ env.IMAGE_NAME }}@${{ steps.build_image.outputs.digest }} -n zachara-dev-prod
+            KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl rollout status deployment/zachara-dev -n zachara-dev-prod --timeout=5m
           "
 
       - name: Deployment notice
         run: |
-          echo "Image published to GHCR and deployed on the VPS with Helm."
+          echo "Image published to GHCR and deployed on the VPS with kubectl."

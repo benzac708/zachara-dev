@@ -23,7 +23,7 @@ Browser → HTTPS → Traefik → K3s Service → nginx container → Static HTM
 - **Orchestration:** K3s
 - **Ingress:** Traefik
 - **Network Security:** Tailscale, UFW, fail2ban
-- **CI/CD:** GitHub Actions (build → push → SSH → Helm deploy)
+- **CI/CD:** GitHub Actions (build → push → SSH → kubectl deploy)
 
 ## Local Development
 
@@ -41,12 +41,9 @@ docker run --rm -p 8080:8080 zachara-dev
 
 ```text
 .
-├── deploy/
-│   └── helm/
-├── infra/
-│   └── terraform/
-├── scripts/
-├── src/
+├── deploy/          # Deployment docs
+├── scripts/          # CI repair scripts
+├── src/              # Astro source
 └── .github/workflows/
 ```
 
@@ -56,28 +53,13 @@ The repo deploys directly from GitHub Actions to the VPS-hosted K3s cluster:
 
 1. Push to `main` triggers GitHub Actions.
 2. CI builds the Astro site and pushes an image to GHCR.
-3. CI SSHes to the VPS and runs Helm there to deploy the new immutable image digest to K3s.
-4. Rollback is a revert or redeploy of the previous application commit.
-
-## Helm
-
-- Helm chart: `deploy/helm/zachara-dev`
-
-Render the chart locally with:
-
-```bash
-helm template zachara-dev ./deploy/helm/zachara-dev -f ./deploy/helm/zachara-dev/values-prod.yaml
-```
+3. CI SSHes to the VPS and runs `kubectl set image` with the image digest.
+4. CI waits for rollout to complete.
+5. Rollback is a revert or redeploy of the previous application commit.
 
 ## Terraform Scope
 
-Terraform is reserved for reproducible infrastructure and lab environments, not normal application releases.
-
-- Oracle bootstrap plan: `infra/terraform/oracle-vps/`
-- AWS lab plan: `infra/terraform/aws-lab/`
-- Minimal AWS EC2 lab: `infra/terraform/aws-lab-minimal/`
-- Azure lab plan: `infra/terraform/azure-lab/`
-- Minimal Azure VM lab: `infra/terraform/azure-lab-minimal/`
+Terraform lives in `bz-dotfiles` for reproducible infrastructure and lab environments.
 
 ## AI-assisted CI
 
