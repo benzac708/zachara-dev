@@ -7,7 +7,7 @@ interface Props {
 const { title, skills } = Astro.props;
 ---
 
-<div class="bg-black border border-slate-800 rounded-lg p-6 hover:border-emerald-400/30 transition">
+<div class="bg-black border border-slate-800 rounded-lg p-6 hover:border-emerald-400/30 transition text-center">
   <h3 class="text-base font-bold text-white mb-4">{title}</h3>
   <div class="flex flex-wrap gap-2">
     {skills.map((skill) => (

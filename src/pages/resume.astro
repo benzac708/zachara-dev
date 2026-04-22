@@ -29,52 +29,54 @@ const skills = [
     knowsAbout: ['Docker', 'Kubernetes', 'K3s', 'containerd', 'GitHub Actions', 'GHCR', 'AWS', 'Azure', 'Oracle Cloud', 'Traefik', 'Tailscale', 'UFW', 'fail2ban', 'Bash', 'Python', 'TypeScript', 'YAML'],
   })} />
 
-<main class="flex-1 flex flex-col items-center px-6 py-12 w-full max-w-2xl mx-auto">
-    <div class="mb-12 text-center">
-      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Bernard Zachara</h1>
-      <p class="text-lg text-emerald-400 mb-4">Cloud / DevOps Enthusiast</p>
-      <p class="text-slate-400 mb-6">
-        Self-taught cloud and DevOps enthusiast building hands-on experience in container orchestration,
-        CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation,
-        reliability, and building practical systems that can be deployed and operated end to end.
-      </p>
-    </div>
-
-    <section class="mb-12 w-full text-center">
-      <h2 class="text-xl font-bold text-white mb-6">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {skills.map((cat) => <SkillCategory {...cat} />)}
+  <main class="flex-1 flex items-center justify-center px-6 py-12 w-full">
+    <div class="max-w-lg w-full text-center">
+      <div class="mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Bernard Zachara</h1>
+        <p class="text-lg text-emerald-400 mb-4">Cloud / DevOps Enthusiast</p>
+        <p class="text-slate-400">
+          Self-taught cloud and DevOps enthusiast building hands-on experience in container orchestration,
+          CI/CD pipelines, and self-hosted cloud infrastructure. Passionate about automation,
+          reliability, and building practical systems that can be deployed and operated end to end.
+        </p>
       </div>
-    </section>
 
-    <section class="mb-12 w-full text-center">
-      <h2 class="text-xl font-bold text-white mb-6">Experience</h2>
-      <div class="space-y-8">
-        <TimelineItem
-          title="Self-Directed Cloud / DevOps Projects"
-          date="2024 - Present"
-          active={true}
-          bullets={[
-            'Built and maintained a K3s cluster on an Ubuntu-based Oracle Cloud VPS with Traefik ingress',
-            'Designed CI/CD pipelines with GitHub Actions for container builds and GHCR publishing',
-            'Secured host and admin access with Tailscale, UFW, fail2ban, and SSH keys',
-            'Automated maintenance tasks with Bash scripts, cron, and systemd timers',
-            'Containerized applications with Docker using multi-stage builds and security best practices',
-          ]}
-        />
-      </div>
-    </section>
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-white mb-6">Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {skills.map((cat) => <SkillCategory {...cat} />)}
+        </div>
+      </section>
 
-    <section class="mb-12 w-full text-center">
-      <h2 class="text-xl font-bold text-white mb-6">Education</h2>
-      <div class="space-y-4">
-        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
-          <div class="flex flex-col items-center gap-2">
-            <h3 class="font-semibold text-white">University of Information Technology and Management in Rzeszów</h3>
-            <span class="text-sm text-slate-400">Expected March 2028</span>
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-white mb-6">Experience</h2>
+        <div class="space-y-8">
+          <TimelineItem
+            title="Self-Directed Cloud / DevOps Projects"
+            date="2024 - Present"
+            active={true}
+            bullets={[
+              'Built and maintained a K3s cluster on an Ubuntu-based Oracle Cloud VPS with Traefik ingress',
+              'Designed CI/CD pipelines with GitHub Actions for container builds and GHCR publishing',
+              'Secured host and admin access with Tailscale, UFW, fail2ban, and SSH keys',
+              'Automated maintenance tasks with Bash scripts, cron, and systemd timers',
+              'Containerized applications with Docker using multi-stage builds and security best practices',
+            ]}
+          />
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-white mb-6">Education</h2>
+        <div class="space-y-4">
+          <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+            <div class="flex flex-col items-center gap-2">
+              <h3 class="font-semibold text-white">University of Information Technology and Management in Rzeszów</h3>
+              <span class="text-sm text-slate-400">Expected March 2028</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 </BaseLayout>
