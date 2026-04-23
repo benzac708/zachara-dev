@@ -57,18 +57,6 @@ The repo deploys directly from GitHub Actions to the VPS-hosted K3s cluster:
 4. CI waits for rollout to complete.
 5. Rollback is a revert or redeploy of the previous application commit.
 
-## Terraform Scope
-
-Terraform lives in `bz-dotfiles` for reproducible infrastructure and lab environments.
-
-## AI-assisted CI
-
-This repo includes a one-shot CI repair wrapper at `scripts/ai-repair-ci.sh`.
-
-- If tests or build fail, CI sends the error log to OpenCode once.
-- The model is configurable with `CI_AI_MODEL` and defaults to `opencode/big-picle`.
-- The step reruns the failed command one time after the AI edit.
-
 ## Health Check
 
 The container exposes `GET /healthz` and returns a simple JSON response.
