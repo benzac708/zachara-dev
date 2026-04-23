@@ -4,8 +4,9 @@ import ProjectCard from "~/components/ProjectCard.astro";
 import TechBadge from "~/components/TechBadge.astro";
 
 const techs = [
-  "Docker", "K3s (Kubernetes)", "GitHub Actions", "GHCR",
-  "Oracle Cloud", "Terraform", "Ubuntu", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
+  "Linux", "AWS", "K3s (Kubernetes)", "Docker",
+  "GitHub Actions", "Terraform", "Bash", "Git",
+  "Oracle Cloud", "Traefik", "Tailscale", "UFW", "fail2ban",
 ];
 
 const projects = [
@@ -27,7 +28,7 @@ const projects = [
   {
     title: "aws-lab",
     description:
-      "Terraform lab for core AWS infrastructure covering compute, networking, and access controls.",
+      "Terraform-based AWS infrastructure project covering VPC networking, EC2, access controls, and infrastructure lifecycle workflows.",
     href: "https://github.com/benzac708/aws-lab",
     tech: ["Terraform", "AWS", "EC2", "VPC"],
     details: [
@@ -35,7 +36,7 @@ const projects = [
       "Covers VPC layout, subnets, security groups, and infrastructure lifecycle basics",
       "Uses the full Terraform init, plan, apply, and destroy workflow",
     ],
-    featured: false,
+    featured: true,
     live: false,
   },
   {
@@ -63,7 +64,7 @@ const projects = [
       "Starts with host audit, guarded bootstrap, and incremental platform reconciliation",
       "Covers shared services such as Traefik, Argo CD, cert-manager, and observability",
     ],
-    featured: true,
+    featured: false,
     live: false,
   },
   {
@@ -88,7 +89,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
 
 <BaseLayout
   title="Bernard Zachara | Cloud / DevOps Enthusiast"
-  description="Cloud and DevOps enthusiast building Terraform labs, operating Docker and K3s workloads on an Oracle Cloud VPS, and shipping the live zachara.dev website."
+  description="Junior Cloud / DevOps engineer building and operating Linux-based infrastructure with Docker, Kubernetes, GitHub Actions, Terraform, AWS networking, and practical host security."
   canonical="https://zachara.dev/"
 >
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -114,7 +115,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
             Self-taught Cloud/DevOps enthusiast.
           </h1>
           <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
-            Building AWS and Azure Terraform labs while operating Docker and K3s workloads on a live Oracle Cloud VPS.
+            Building and operating Linux-based infrastructure with Docker, Kubernetes, GitHub Actions, and Terraform. Hands-on with AWS networking, VPS operations, CI/CD, and practical host security.
           </p>
           <div class="flex flex-wrap gap-4 mb-10 justify-center">
             <a href="#projects" class="px-6 py-3 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-semibold rounded-lg transition">View Projects</a>

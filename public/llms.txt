@@ -1,16 +1,16 @@
-# Bernard Zachara — Cloud / DevOps Enthusiast
+# Bernard Zachara — Junior Cloud / DevOps Engineer
 
-> Personal portfolio and resume site for Bernard Zachara, a Cloud and DevOps enthusiast focused on Docker, K3s, CI/CD, and self-hosted cloud infrastructure.
+> Personal portfolio and resume site for Bernard Zachara, a junior Cloud / DevOps engineer focused on Linux operations, Docker, Kubernetes, CI/CD, Terraform, and self-hosted infrastructure.
 
 ## About
 
-Bernard Zachara is a Cloud / DevOps enthusiast building reliable infrastructure with Docker, K3s, GitHub Actions, and practical host security on an Oracle Cloud VPS.
+Bernard Zachara is a junior Cloud / DevOps engineer focused on Linux operations, Docker, Kubernetes, CI/CD, Terraform, and practical host security on an Oracle Cloud VPS.
 
 ## Skills
 
 - Containers & Orchestration: Docker, Kubernetes, K3s, containerd
 - CI/CD: GitHub Actions, GHCR
-- Cloud Platforms: Oracle Cloud (production), AWS (learning), Azure (learning)
+- Cloud Platforms: Oracle Cloud (production), AWS (hands-on Terraform labs), Azure (hands-on Terraform labs)
 - Networking & Security: Traefik, Tailscale, UFW, fail2ban
 - Scripting & Languages: Bash, Python, TypeScript, YAML
 
