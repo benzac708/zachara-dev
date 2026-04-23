@@ -5,20 +5,21 @@ import TechBadge from "~/components/TechBadge.astro";
 
 const techs = [
   "Docker", "K3s (Kubernetes)", "GitHub Actions", "GHCR",
-  "Oracle Cloud", "Ubuntu", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
+  "Oracle Cloud", "Terraform", "Ubuntu", "Bash", "Traefik", "Tailscale", "UFW", "fail2ban",
 ];
 
 const projects = [
   {
     title: "zachara-dev",
     description:
-      "Personal portfolio site deployed to K3s on an Oracle Cloud VPS with Docker and GitHub Actions.",
+      "Personal portfolio site running on K3s on an Oracle Cloud VPS with Docker, GHCR, and GitHub Actions.",
     href: "https://github.com/benzac708/zachara-dev",
+    liveHref: "https://zachara.dev",
     tech: ["Astro", "TypeScript", "Bun", "Docker", "K3s"],
     details: [
-      "Used K3s to keep Kubernetes lightweight on a single VPS",
-      "CI/CD: GitHub Actions builds, pushes to GHCR, and deploys with kubectl",
-      "Secured host access with Tailscale, UFW, fail2ban, and SSH keys",
+      "Runs the production website as a lightweight single-node Kubernetes workload",
+      "GitHub Actions builds the app, pushes to GHCR, and updates the live deployment",
+      "Host access is locked down with Tailscale, UFW, fail2ban, and SSH keys",
     ],
     featured: true,
     live: true,
@@ -26,13 +27,13 @@ const projects = [
   {
     title: "aws-lab",
     description:
-      "Terraform labs for core AWS infrastructure: EC2, networking, and security controls.",
+      "Terraform lab for core AWS infrastructure covering compute, networking, and access controls.",
     href: "https://github.com/benzac708/aws-lab",
-    tech: ["Terraform", "AWS", "EC2"],
+    tech: ["Terraform", "AWS", "EC2", "VPC"],
     details: [
-      "Provisioned EC2 instances and supporting network resources with Terraform",
-      "Practiced VPC and security group setup for basic cloud isolation",
-      "Used the full init → plan → apply → destroy workflow",
+      "Builds EC2, networking, and supporting AWS resources from Terraform",
+      "Covers VPC layout, subnets, security groups, and infrastructure lifecycle basics",
+      "Uses the full Terraform init, plan, apply, and destroy workflow",
     ],
     featured: false,
     live: false,
@@ -40,27 +41,41 @@ const projects = [
   {
     title: "azure-lab",
     description:
-      "Terraform labs for core Azure infrastructure: VM, VNet, and network security.",
+      "Terraform lab for core Azure infrastructure covering VM, VNet, and network security setup.",
     href: "https://github.com/benzac708/azure-lab",
-    tech: ["Terraform", "Azure", "VM"],
+    tech: ["Terraform", "Azure", "VM", "VNet"],
     details: [
-      "Provisioned Azure VMs and networking resources with Terraform",
-      "Practiced VNet and NSG configuration for controlled access",
-      "Used the full init → plan → apply → destroy workflow",
+      "Builds Azure VM and networking resources from Terraform",
+      "Covers VNet, subnet, NSG, and controlled access patterns",
+      "Uses the same full Terraform lifecycle as the AWS lab",
     ],
     featured: false,
     live: false,
   },
   {
+    title: "oracle-lab",
+    description:
+      "Platform repo for safely adopting and managing the existing Oracle Cloud VPS and shared K3s services in place.",
+    href: "https://github.com/benzac708/oracle-lab",
+    tech: ["Oracle Cloud", "K3s", "Docker", "Bash", "Platform Ops"],
+    details: [
+      "Separates VPS and shared cluster ownership from the website application repo",
+      "Starts with host audit, guarded bootstrap, and incremental platform reconciliation",
+      "Covers shared services such as Traefik, Argo CD, cert-manager, and observability",
+    ],
+    featured: true,
+    live: false,
+  },
+  {
     title: "vps-ops-toolkit",
     description:
-      "Bash scripts for VPS maintenance, guarded reboots, cleanup, and security checks.",
+      "Bash toolkit for VPS maintenance, guarded reboots, cleanup, and recurring host checks.",
     href: "https://github.com/benzac708/vps-ops-toolkit",
     tech: ["Bash", "K3s", "UFW", "fail2ban"],
     details: [
-      "Added safe reboot flow with K3s drain and recovery steps",
-      "Automated disk, Docker, and package maintenance tasks",
-      "Used systemd timers for recurring updates and host checks",
+      "Adds guarded reboot flow with K3s drain and recovery steps",
+      "Automates disk, Docker, and package maintenance tasks",
+      "Uses systemd timers for recurring updates and host checks",
     ],
     featured: false,
     live: false,
@@ -73,7 +88,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
 
 <BaseLayout
   title="Bernard Zachara | Cloud / DevOps Enthusiast"
-  description="Cloud and DevOps enthusiast building and operating Docker and K3s workloads on an Oracle Cloud VPS with CI/CD and host security."
+  description="Cloud and DevOps enthusiast building Terraform labs, operating Docker and K3s workloads on an Oracle Cloud VPS, and shipping the live zachara.dev website."
   canonical="https://zachara.dev/"
 >
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -99,7 +114,7 @@ const heroRail = "max-w-4xl mx-auto text-center";
             Self-taught Cloud/DevOps enthusiast.
           </h1>
           <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
-            Docker + K3s + GitHub Actions CI/CD on a live VPS. Traefik ingress. Tailscale + UFW for access.
+            Building AWS and Azure Terraform labs while operating Docker and K3s workloads on a live Oracle Cloud VPS.
           </p>
           <div class="flex flex-wrap gap-4 mb-10 justify-center">
             <a href="#projects" class="px-6 py-3 border border-slate-600 hover:border-emerald-400 text-slate-300 hover:text-white font-semibold rounded-lg transition">View Projects</a>
@@ -114,6 +129,9 @@ const heroRail = "max-w-4xl mx-auto text-center";
     <section id="projects" class="scroll-mt-24 px-6 py-16 border-t border-slate-800">
       <div class={sectionRail}>
         <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+        <p class="text-center text-slate-400 max-w-2xl mx-auto mb-10">
+          Live website work, cloud labs, and the Oracle VPS platform split that now separates app delivery from shared infrastructure ownership.
+        </p>
 
         <div class="grid gap-6">
           {projects.map((project) => <ProjectCard {...project} />)}

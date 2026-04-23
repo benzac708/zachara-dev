@@ -3,13 +3,14 @@ interface Props {
   title: string;
   description: string;
   href: string;
+  liveHref?: string;
   tech: string[];
   details?: string[];
   featured?: boolean;
   live?: boolean;
 }
 
-const { title, description, href, tech, details = [], featured = false, live = false } = Astro.props;
+const { title, description, href, liveHref, tech, details = [], featured = false, live = false } = Astro.props;
 ---
 
 <div class={`bg-black border ${featured ? "border-emerald-400/50 ring-1 ring-emerald-400/20" : "border-slate-800"} rounded-lg p-6 hover:border-emerald-400/50 transition group relative`}>
@@ -26,6 +27,14 @@ const { title, description, href, tech, details = [], featured = false, live = f
           <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
           Live
         </span>
+      )}
+      {liveHref && (
+        <a href={liveHref} target="_blank" rel="noopener" class="text-slate-500 hover:text-emerald-400 transition text-sm flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H21v7.5M10.5 13.5 21 3M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
+          </svg>
+          Website
+        </a>
       )}
       <a href={href} target="_blank" rel="noopener" class="text-slate-500 hover:text-emerald-400 transition text-sm flex items-center gap-1">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
